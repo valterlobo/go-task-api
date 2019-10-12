@@ -11,5 +11,3 @@ type Task struct {
 	DateStop    time.Time `json:"date_stop"`
 	DateCreate  time.Time `json:"date_create"`
 }
-
-//id, title, description, done, date_start, date_stop, date_create
