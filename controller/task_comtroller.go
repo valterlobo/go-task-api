@@ -28,10 +28,6 @@ func NewTaskController(router *gin.Engine) {
 		group.POST("/", taskController.Save)
 		group.PUT("/", taskController.Update)
 		group.DELETE("/:id", taskController.Delete)
-		/*
-			group.GET("/period/dtInicio/dataFim", controller.FetchArticle)
-			group.GET("/search/dtInicio/dataFim", controller.FetchArticle)
-		*/
 	}
 
 }

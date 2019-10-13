@@ -3,15 +3,22 @@ package repository
 import (
 	"database/sql"
 	"log"
+
+	"lobo.tech/task/config"
 )
 
-func NewDB() *sql.DB {
+func NewDB(conf *config.Config) *sql.DB {
 
-	//db, err := sql.Open("mysql", "manager:1234@/cursogo")
-	connStr := "postgres://postgres:postgres@localhost/postgres"
+	str_user := conf.GetValue("local.database_user")
+	str_pass := conf.GetValue("local.database_pass")
+	str_host := conf.GetValue("local.dbhost")
+	str_database := conf.GetValue("local.database")
+	connStr := "postgres://" + str_user + ":" + str_pass + "@" + str_host + "/" + str_database
+	//fmt.Println(connStr)
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
+		panic(err)
 	}
 
 	return db
