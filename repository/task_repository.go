@@ -2,7 +2,6 @@ package repository
 
 import (
 	"database/sql"
-	"fmt"
 	"time"
 
 	_ "github.com/lib/pq"
@@ -124,11 +123,8 @@ func (repository *TaskRepository) GetByPeriod(date_start, date_finish time.Time)
 	var task model.Task
 
 	for rows.Next() {
-
-		fmt.Println(rows)
 		rows.Scan(&task.ID, &task.Title, &task.Description,
 			&task.Done, &task.DateStart, &task.DateStop, &task.DateCreate)
-
 		tasks = append(tasks, task)
 	}
 
