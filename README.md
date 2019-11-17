@@ -1,18 +1,15 @@
 # go-task-api
+
 API CRUD desenvolvida com GOLANG / GIN + algumas libs GO
-
-
-
 
 # todo
 
-
--  Formatar Data - OK ? 
- - Validar entradas 
- - Tratamento de errors melhorar -  
+- Formatar Data - OK 
 - Configuraçoes em arquivo - OK 
-- Securanca midleware - JWT - apikey
-
+- Conexão com o banco de dados - validar  formas de abrir e fechar e transaction
+- Validar entradas 
+- Tratamento de errors melhorar -  
+- Segurança midleware - JWT - apikey
 
 
 github.com/SermoDigital/jose
