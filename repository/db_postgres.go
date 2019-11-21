@@ -21,6 +21,8 @@ func NewDB(conf *config.Config) *sql.DB {
 		panic(err)
 	}
 
+	db.SetMaxIdleConns(5)
+
 	return db
 
 }
