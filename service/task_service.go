@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"time"
 
 	"lobo.tech/task/config"
@@ -12,7 +11,6 @@ import (
 func NewTaskService() *TaskService {
 
 	var config = config.NewConfig()
-	fmt.Println(config.GetValue("local.port"))
 
 	db := repository.NewDB(config)
 	taskRespository := &repository.TaskRepository{DB: db}

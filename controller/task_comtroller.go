@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -39,9 +40,13 @@ func (taskController *TaskController) GetByID(c *gin.Context) {
 	task, err := taskController.TaskService.GetByID(id)
 
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, err)
+		log.Fatal(err)
+		c.JSON(http.StatusOK, err)
+		//c.JSON(http.StatusNotFound, err)
+	} else {
+		c.JSON(http.StatusOK, task)
 	}
-	c.JSON(http.StatusOK, task)
+
 }
 
 func (taskController *TaskController) Save(c *gin.Context) {
